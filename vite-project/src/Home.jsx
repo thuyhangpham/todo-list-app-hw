@@ -28,35 +28,46 @@ function Home() {
         }
 
     return (
-        <div className= 'home'>
-            <h1>Todo List</h1>
-            <Create />
-            <br/>
-            {
-                todo.length === 0 
-                ?
-                <div><h2>No todos yett!</h2></div> 
-                :  
-                todo.map(todo => (
-                        <div className ='task'>
-                            <div className='checkbox' onClick={() => handleEdit(todo._id)}>
-                                {todo.done ? 
-                                        <BsFillCheckCircleFill className='icon'> </BsFillCheckCircleFill>
-                                : <BsCircleFill className='icon'/>
-                                }
-                                <p className={todo.done ? 'line through' : ''}> {todo.task} </p>
-                            </div>
-                            <div>
-                                <span><BsFillTrashFill className='icon' 
-                                    onClick={() => handleDelete(todo._id)}/> </span>
-                            </div>
-                        </div>
-                    ))
-                
-            }
+  <div className="home">
+    <h1>Todo List</h1>
+    <Create />
+    <br />
+
+    {todo.length === 0 ? (
+      <h2>No todos yet!</h2>
+    ) : (
+      todo.map((item) => (
+        <div className="task" key={item._id}>
+          
+          <div 
+            className="checkbox" 
+            onClick={() => handleEdit(item._id)}
+          >
+            {item.done ? (
+              <BsFillCheckCircleFill className="icon" />
+            ) : (
+              <BsCircleFill className="icon" />
+            )}
+
+            <p className={item.done ? "line-through" : ""}>
+              {item.task}
+            </p>
+          </div>
+
+          <div>
+            <span>
+              <BsFillTrashFill
+                className="icon"
+                onClick={() => handleDelete(item._id)}
+              />
+            </span>
+          </div>
 
         </div>
-    )
+      ))
+    )}
+  </div>
+);
 }
 
 export default Home
