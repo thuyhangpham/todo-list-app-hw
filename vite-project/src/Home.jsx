@@ -35,7 +35,7 @@ function Home() {
             {
                 todo.length === 0 
                 ?
-                <div><h2>No todos yet!</h2></div> 
+                <div><h2>No todos yett!</h2></div> 
                 :  
                 todo.map(todo => (
                         <div className ='task'>
