@@ -1,0 +1,13 @@
+
+server/node_modules/
+server/dist/
+server/build/
+
+.env
+.env.*
+!.env.example
+
+
+.cache/
+.eslintcache
+*.local
